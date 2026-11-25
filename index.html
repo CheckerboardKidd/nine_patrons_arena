@@ -1,0 +1,372 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nine Patrons Arena | Checkerboard Kidd Studios</title>
+
+<style>
+:root {
+    --white: #ffffff;
+    --yellow: #ffe000;
+    --cyan: #00d9ed;
+    --green: #00d84b;
+    --grey: #888888;
+    --magenta: #ed00c7;
+    --red: #ee2222;
+    --blue: #3434ed;
+    --black: #080808;
+    --text: #eee5f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background-color: #242424;
+    background-image: conic-gradient(
+        #292929 25%, #242424 0 50%,
+        #292929 0 75%, #242424 0
+    );
+    background-size: 48px 48px;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px 35px;
+}
+
+h1 {
+    font-size: clamp(36px, 8vw, 80px);
+    letter-spacing: 5px;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 24px;
+    letter-spacing: 12px;
+    margin: 10px 0 25px;
+}
+
+.spectrum {
+    display: flex;
+    max-width: 600px;
+    margin: 25px auto;
+    height: 8px;
+}
+
+.spectrum span {
+    flex: 1;
+}
+
+.edition {
+    color: var(--yellow);
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+main {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
+}
+
+.panel {
+    background: rgba(25, 25, 25, 0.94);
+    border: 1px solid #555;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+h2 {
+    margin-top: 0;
+    letter-spacing: 2px;
+}
+
+p {
+    line-height: 1.6;
+}
+
+.downloads {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit, minmax(240px, 1fr)
+    );
+    gap: 15px;
+}
+
+.download-card {
+    padding: 20px;
+    border: 1px solid #555;
+    background: #303030;
+    border-radius: 6px;
+}
+
+.button {
+    display: block;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid currentColor;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.button:hover {
+    background: #444;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.roster {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.patron {
+    text-align: center;
+    padding: 22px 5px;
+    background: #303030;
+    border: 2px solid currentColor;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.patron small {
+    display: block;
+    color: var(--text);
+    font-weight: normal;
+    margin-top: 8px;
+    font-size: 11px;
+}
+
+.upcoming {
+    opacity: 0.45;
+}
+
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    color: #aaa;
+    font-size: 13px;
+}
+
+@media (max-width: 480px) {
+    header {
+        padding-top: 35px;
+    }
+
+    .panel {
+        padding: 18px;
+    }
+
+    .patron {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>NINE PATRONS</h1>
+    <div class="subtitle">ARENA</div>
+
+    <div class="spectrum">
+        <span style="background:var(--white)"></span>
+        <span style="background:var(--yellow)"></span>
+        <span style="background:var(--cyan)"></span>
+        <span style="background:var(--green)"></span>
+        <span style="background:var(--grey)"></span>
+        <span style="background:var(--magenta)"></span>
+        <span style="background:var(--red)"></span>
+        <span style="background:var(--blue)"></span>
+        <span style="background:var(--black)"></span>
+    </div>
+
+    <div class="edition">
+        THANKSGIVING 2026 // PLAYTEST EDITION
+    </div>
+</header>
+
+<main>
+
+<section class="panel">
+    <h2 style="color:var(--yellow)">WELCOME, PLAYER</h2>
+
+    <p>
+        Nine Patrons Arena is an experimental 3D arena
+        combat game featuring nine spectral Patrons,
+        each with their own weapons, powers, movement
+        mechanics and combat identity.
+    </p>
+
+    <p>
+        Choose your Patron. Experiment with their
+        abilities. Discover combinations. Help shape
+        the future of the game.
+    </p>
+</section>
+
+<section class="panel">
+    <h2 style="color:var(--cyan)">DOWNLOAD THE GAME</h2>
+
+    <div class="downloads">
+
+        <div class="download-card">
+            <h3 style="color:var(--green)">
+                ANDROID EDITION
+            </h3>
+
+            <p>
+                Install the APK on your compatible
+                Android device.
+            </p>
+
+            <span class="button disabled"
+                  style="color:var(--green)">
+                DOWNLOAD COMING SOON
+            </span>
+        </div>
+
+        <div class="download-card">
+            <h3 style="color:var(--cyan)">
+                WINDOWS EDITION
+            </h3>
+
+            <p>
+                Download, extract and launch the
+                game on your Windows PC.
+            </p>
+
+            <span class="button disabled"
+                  style="color:var(--cyan)">
+                DOWNLOAD COMING SOON
+            </span>
+        </div>
+
+    </div>
+</section>
+
+<section class="panel">
+    <h2 style="color:var(--magenta)">THE NINE PATRONS</h2>
+
+    <div class="roster">
+
+        <div class="patron" style="color:var(--white)">
+            WHITE
+            <small>Light / Spears</small>
+        </div>
+
+        <div class="patron" style="color:var(--yellow)">
+            YELLOW
+            <small>Electricity / Fists</small>
+        </div>
+
+        <div class="patron" style="color:var(--cyan)">
+            CYAN
+            <small>Ice / Scythes</small>
+        </div>
+
+        <div class="patron upcoming"
+             style="color:var(--green)">
+            GREEN
+            <small>Coming Soon</small>
+        </div>
+
+        <div class="patron" style="color:var(--grey)">
+            GREY
+            <small>Balance / Hammers</small>
+        </div>
+
+        <div class="patron" style="color:var(--magenta)">
+            MAGENTA
+            <small>Charm / Chains / In Development</small>
+        </div>
+
+        <div class="patron upcoming"
+             style="color:var(--red)">
+            RED
+            <small>Coming Soon</small>
+        </div>
+
+        <div class="patron upcoming"
+             style="color:var(--blue)">
+            BLUE
+            <small>Coming Soon</small>
+        </div>
+
+        <div class="patron"
+             style="color:var(--black);background:#666">
+            BLACK
+            <small>Void / Axes / Tendrils</small>
+        </div>
+
+    </div>
+</section>
+
+<section class="panel">
+    <h2 style="color:var(--red)">PLAYER GUIDE</h2>
+
+    <p>
+        Learn the controls, game modes, Patron
+        abilities and suggested combat combinations.
+    </p>
+
+    <span class="button disabled"
+          style="color:var(--red)">
+        GUIDE COMING SOON
+    </span>
+</section>
+
+<section class="panel">
+    <h2 style="color:var(--blue)">PLAYTEST FEEDBACK</h2>
+
+    <p>
+        Your feedback helps improve the game.
+        Tell us what feels great, what feels awkward,
+        what needs fixing and what you want to see next.
+    </p>
+
+    <span class="button disabled"
+          style="color:#7777ff">
+        SURVEY COMING SOON
+    </span>
+</section>
+
+<section class="panel">
+    <h2>DEVELOPMENT STATUS</h2>
+
+    <p>
+        This is an early development playtest.
+        Gameplay, balance, visuals, audio and
+        features are subject to change.
+    </p>
+
+    <p>
+        Bugs and unexpected interactions may occur.
+        Experiment, explore and have fun!
+    </p>
+</section>
+
+</main>
+
+<footer>
+    CHECKERBOARD KIDD STUDIOS<br><br>
+    Nine Patrons Arena &copy; 2026
+</footer>
+
+</body>
+</html>
