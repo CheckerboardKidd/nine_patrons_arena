@@ -198,6 +198,17 @@ footer {
     height: auto;
     margin: 0 auto 16px;
 }
+    a.patron {
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.patron:hover,
+a.patron:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px currentColor;
+}
 </style>
 <link rel="icon" type="image/png" href="Ninefold%20Sigil.png">
 </head>
@@ -286,64 +297,65 @@ footer {
             </span>
         </div>
 
+   
+<div class="roster">
+
+    <a class="patron" href="patrons.html#white"
+       style="color:var(--white)">
+        WHITE
+        <small>Light / Spears</small>
+    </a>
+
+    <a class="patron" href="patrons.html#yellow"
+       style="color:var(--yellow)">
+        YELLOW
+        <small>Electricity / Fists</small>
+    </a>
+
+    <a class="patron" href="patrons.html#cyan"
+       style="color:var(--cyan)">
+        CYAN
+        <small>Ice / Scythes</small>
+    </a>
+
+    <div class="patron upcoming"
+         style="color:var(--green)">
+        GREEN
+        <small>Coming Soon</small>
     </div>
-</section>
 
-<section class="panel">
-    <h2 style="color:var(--magenta)">THE NINE PATRONS</h2>
+    <a class="patron" href="patrons.html#grey"
+       style="color:var(--grey)">
+        GREY
+        <small>Balance / Hammers</small>
+    </a>
 
-    <div class="roster">
+    <a class="patron" href="patrons.html#magenta"
+       style="color:var(--magenta)">
+        MAGENTA
+        <small>Charm / Chains</small>
+    </a>
 
-        <div class="patron" style="color:var(--white)">
-            WHITE
-            <small>Light / Spears</small>
-        </div>
-
-        <div class="patron" style="color:var(--yellow)">
-            YELLOW
-            <small>Electricity / Fists</small>
-        </div>
-
-        <div class="patron" style="color:var(--cyan)">
-            CYAN
-            <small>Ice / Scythes</small>
-        </div>
-
-        <div class="patron upcoming"
-             style="color:var(--green)">
-            GREEN
-            <small>Coming Soon</small>
-        </div>
-
-        <div class="patron" style="color:var(--grey)">
-            GREY
-            <small>Balance / Hammers</small>
-        </div>
-
-        <div class="patron" style="color:var(--magenta)">
-            MAGENTA
-            <small>Charm / Chains / In Development</small>
-        </div>
-
-        <div class="patron upcoming"
-             style="color:var(--red)">
-            RED
-            <small>Coming Soon</small>
-        </div>
-
-        <div class="patron upcoming"
-             style="color:var(--blue)">
-            BLUE
-            <small>Coming Soon</small>
-        </div>
-
-        <div class="patron"
-             style="color:var(--black);background:#666">
-            BLACK
-            <small>Void / Axes / Tendrils</small>
-        </div>
-
+    <div class="patron upcoming"
+         style="color:var(--red)">
+        RED
+        <small>Coming Soon</small>
     </div>
+
+    <div class="patron upcoming"
+         style="color:var(--blue)">
+        BLUE
+        <small>Coming Soon</small>
+    </div>
+
+    <a class="patron" href="patrons.html#black"
+       style="color:var(--black);background:#666">
+        BLACK
+        <small>Void / Axes / Tendrils</small>
+    </a>
+
+</div>
+
 </section>
 
 <section class="panel">
@@ -354,10 +366,10 @@ footer {
         abilities and suggested combat combinations.
     </p>
 
-    <span class="button disabled"
-          style="color:var(--red)">
-        GUIDE COMING SOON
-    </span>
+  <a class="button" href="patrons.html"
+   style="color:var(--red)">
+    OPEN PATRON COMPENDIUM
+</a>
 </section>
 
 <section class="panel">
