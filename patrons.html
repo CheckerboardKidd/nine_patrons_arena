@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patron Compendium | Nine Patrons Arena</title>
+<link rel="icon" href="Ninefold Sigil.png">
+
+<style>
+:root {
+    --white: #ffffff;
+    --yellow: #ffe000;
+    --cyan: #00d9ed;
+    --green: #00d84b;
+    --grey: #888888;
+    --magenta: #ed00c7;
+    --red: #ee2222;
+    --blue: #3434ed;
+    --black: #080808;
+    --text: #eee5f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background-color: #242424;
+    background-image: conic-gradient(
+        #292929 25%,
+        #242424 0 50%,
+        #292929 0 75%,
+        #242424 0
+    );
+    background-size: 48px 48px;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.game-logo {
+    width: 100%;
+    max-width: 520px;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: clamp(24px, 5vw, 36px);
+}
+
+.subtitle {
+    color: #aaa;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.spectrum {
+    display: flex;
+    height: 7px;
+    margin: 24px 0;
+}
+
+.spectrum span {
+    flex: 1;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 18px;
+    background: #333;
+    border: 1px solid #666;
+    border-radius: 5px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.button:hover {
+    background: #555;
+}
+
+.roster-nav {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    margin: 20px 0 30px;
+}
+
+.roster-nav a {
+    color: var(--accent);
+    background: #171717;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    padding: 12px 5px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.roster-nav a:hover {
+    background: #383838;
+}
+
+.patron {
+    background: rgba(19,19,19,.96);
+    border: 1px solid #555;
+    border-top: 5px solid var(--accent);
+    border-radius: 8px;
+    margin-bottom: 30px;
+    padding: 22px;
+    scroll-margin-top: 20px;
+}
+
+.patron-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+    gap: 24px;
+    align-items: center;
+}
+
+.portrait {
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    background: #0b0b0b;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+}
+
+.patron-name {
+    color: var(--accent);
+    font-size: 36px;
+    margin: 0;
+}
+
+.patron-type {
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+.playstyle {
+    font-size: 17px;
+}
+
+.section-title {
+    margin-top: 26px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.basics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.basic-card, .mechanics, .combo {
+    padding: 14px;
+    background: #222;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.basic-card h4, .combo h4 {
+    margin: 0 0 8px;
+}
+
+.abilities {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.ability {
+    padding: 14px;
+    border: 1px solid #555;
+    border-top: 4px solid var(--slot);
+    border-radius: 5px;
+    background-color: #222;
+    background-image: conic-gradient(
+        #282828 25%,
+        #222 0 50%,
+        #282828 0 75%,
+        #222 0
+    );
+    background-size: 24px 24px;
+}
+
+.ability h4 {
+    color: var(--slot);
+    margin: 10px 0;
+    font-size: 15px;
+}
+
+.binding {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: bold;
+    background: #101010;
+    border: 1px solid #555;
+    padding: 3px 7px;
+    border-radius: 4px;
+}
+
+.ability p, .basic-card p, .combo p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.combos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.combo {
+    border-left: 3px solid var(--accent);
+}
+
+.combo h4 {
+    color: var(--accent);
+}
+
+.combo-sequence {
+    font-weight: bold;
+}
+
+.note {
+    color: #aaa;
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    color: #aaa;
+    padding: 30px 0;
+    font-size: 12px;
+}
+
+.studio-logo {
+    width: 220px;
+    max-width: 80%;
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 12px;
+    }
+
+    .roster-nav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .patron-heading {
+        grid-template-columns: 1fr;
+    }
+
+    .portrait {
+        height: 280px;
+    }
+
+    .abilities {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .combos {
+        grid-template-columns: 1fr;
+    }
+
+    .patron {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .abilities, .basics {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    header, .roster-nav, footer, .no-print {
+        display: none;
+    }
+
+    main {
+        max-width: none;
+        padding: 0;
+    }
+
+    .patron {
+        background: white;
+        color: black;
+        break-before: page;
+        border: 1px solid #777;
+        margin: 0;
+        padding: 12px;
+    }
+
+    .patron:first-child {
+        break-before: auto;
+    }
+
+    .portrait {
+        height: 200px;
+    }
+
+    .ability, .basic-card, .combo, .mechanics {
+        background: #f4f4f4;
+        color: black;
+        break-inside: avoid;
+    }
+
+    .ability h4, .patron-name, .combo h4 {
+        color: black;
+    }
+
+    .binding {
+        background: white;
+        color: black;
+    }
+
+    .patron-type, .note {
+        color: #444;
+    }
+
+    .playstyle, .mechanics {
+        font-size: 12px;
+    }
+
+    .ability p, .basic-card p, .combo p {
+        font-size: 11px;
+    }
+
+    .section-title {
+        margin-top: 14px;
+    }
+
+    .ability, .basic-card, .combo {
+        padding: 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+<main>
+
+<header>
+    <img class="game-logo"
+         src="Nine Patrons Arena main logo.png"
+         alt="Nine Patrons Arena">
+
+    <h1>PATRON COMPENDIUM</h1>
+    <p class="subtitle">THANKSGIVING 2026 // PLAYTEST EDITION</p>
+
+    <div class="spectrum">
+        <span style="background:var(--white)"></span>
+        <span style="background:var(--yellow)"></span>
+        <span style="background:var(--cyan)"></span>
+        <span style="background:var(--green)"></span>
+        <span style="background:var(--grey)"></span>
+        <span style="background:var(--magenta)"></span>
+        <span style="background:var(--red)"></span>
+        <span style="background:var(--blue)"></span>
+        <span style="background:var(--black)"></span>
+    </div>
+
+    <p>
+        Six Patrons. Six distinct combat styles.
+        Discover their abilities, experiment with combinations
+        and find your own way to fight.
+    </p>
+
+    <a class="button" href="index.html">RETURN TO PLAYTEST PORTAL</a>
+    <button class="button" onclick="window.print()">PRINT GUIDE</button>
+</header>
+
+<nav class="roster-nav" id="roster-nav"></nav>
+
+<p class="note no-print">
+    Ability inputs are listed as Keyboard / Xbox / PlayStation.
+    Suggested combinations are starting points, not required
+    attack sequences. All mechanics are subject to change
+    during development.
+</p>
+
+<div id="compendium"></div>
+
+<footer>
+    <img class="studio-logo"
+         src="Checkerboard Kidd rectangular logo.png"
+         alt="Checkerboard Kidd Studios">
+    <p>NINE PATRONS ARENA &copy; 2026</p>
+    <p>EARLY DEVELOPMENT PLAYTEST</p>
+    <a class="button" href="index.html">RETURN TO PORTAL</a>
+</footer>
+
+</main>
+
+<script>
+const slots = [
+    { color: "#ffe000", input: "Q / LB / L1" },
+    { color: "#00d9ed", input: "F / LT / L2" },
+    { color: "#00d84b", input: "R / LB+RB / L1+R1" },
+    { color: "#ed00c7", input: "Shift / B / Circle" },
+    { color: "#ee4444", input: "T / RB / R1" },
+    { color: "#7777ff", input: "E / Y / Triangle" }
+];
+
+const patrons = [
+
+{
+    id: "white",
+    name: "WHITE",
+    color: "#ffffff",
+    image: "White_patron.png",
+    type: "Light // Spears",
+    overview: "An aerial combatant who combines radiant beams, spectral spears and exceptional flight capabilities. White excels at attacking from unexpected elevations and controlling distance.",
+    melee: "A three-hit spectral spear combination that follows your aiming direction.",
+    ranged: "Fire a focused Eye Beam toward your aiming reticle.",
+    abilities: [
+        ["Sixfold Volley", "Unleash a volley of spectral spears toward your target."],
+        ["Halo Guard", "Use White's halo as a defensive ability."],
+        ["Ascension", "Enter an empowered flight state with enhanced movement and a stronger Eye Beam. Some standard abilities become unavailable."],
+        ["Wingburst", "Perform a powerful directional aerial dash to reposition or close distance."],
+        ["Flap & Glide", "Tap Jump to gain altitude. Hold Jump to glide.", "Jump / A / Cross"],
+        ["Purification", "Fire a massive sustained beam that damages enemies and removes negative status effects from allies."]
+    ],
+    mechanics: "White can repeatedly flap to gain altitude and glide through the arena. Use vertical movement to create attack angles unavailable to grounded opponents.",
+    combos: [
+        ["Aerial Assault", "Flap & Glide → Wingburst → Spear Combo", "Approach from above and use Wingburst to close the remaining distance."],
+        ["Radiant Pursuit", "Ascension → Eye Beam", "Use empowered flight to maintain pressure on moving targets."]
+    ]
+},
+
+{
+    id: "yellow",
+    name: "YELLOW",
+    color: "#ffe000",
+    image: "Yellow_patron.png",
+    type: "Electricity // Gauntlets",
+    overview: "A fast, aggressive fighter who uses electrical kunai and anchor points to move rapidly around the battlefield. Yellow rewards creative positioning and quick follow-up attacks.",
+    melee: "A rapid five-hit gauntlet combination.",
+    ranged: "Throw electrical kunai that can establish anchors around the battlefield.",
+    abilities: [
+        ["Capacitor Burst", "Release Yellow's stored electrical power."],
+        ["Static Field", "Activate an electrical defensive field. Hold the input to maintain the defensive action."],
+        ["Ninefold", "Unleash Yellow's ultimate electrical assault using the kunai system."],
+        ["Flashstep", "Quickly dash to reposition, evade or approach an enemy."],
+        ["Anchor Zip", "Rapidly travel toward an established kunai anchor. Time a melee attack at the beginning of the zip to perform Thunderstrike."],
+        ["Claw Flurry", "Empower close-range attacks with electrical kunai claws for a rapid offensive assault."]
+    ],
+    mechanics: "Yellow's kunai form a shared resource pool. Place anchors strategically and use Recall (C / R3) to retrieve deployed kunai. Anchor Zip provides additional movement opportunities.",
+    combos: [
+        ["Thunderstrike Approach", "Kunai Anchor → Anchor Zip + Melee → Melee Combo", "Establish an anchor and time your attack as the zip begins."],
+        ["Close-Range Rush", "Flashstep → Claw Flurry → Melee", "Close the distance before unleashing empowered attacks."]
+    ]
+},
+
+{
+    id: "cyan",
+    name: "CYAN",
+    color: "#00d9ed",
+    image: "Cyan_patron.png",
+    type: "Ice // Scythes",
+    overview: "A mobile battlefield controller who uses frost, teleportation and ice clones to manipulate enemy positioning. Cyan becomes especially dangerous once opponents are Frostbitten.",
+    melee: "A four-hit scythe combination ending with a returning thrown scythe. Scythe attacks deal increased damage to Frostbitten enemies.",
+    ranged: "Launch alternating icy crescent projectiles that build Frostbite.",
+    abilities: [
+        ["Shepherd's Hook", "Extend your scythe to hook an enemy and pull them into melee range."],
+        ["Reactive Guard", "Defend with an ice shield. Well-timed guards provide stronger protection and additional benefits."],
+        ["Synchronized", "Summon three duplicates that mirror your attacks and abilities, allowing coordinated assaults."],
+        ["Glacial Teleport", "Teleport and leave behind an ice clone. Aim toward an existing clone to teleport to it."],
+        ["Glacial Phase", "Enter a floating phased state, moving freely through enemies while spreading Frostbite."],
+        ["Place Clone", "Place an ice clone at a targeted location. Confirm placement with your ranged attack input. Use the ability again when appropriate to detonate clones."]
+    ],
+    mechanics: "Build Frostbite through ranged attacks and abilities, then exploit it with your scythe. Ice clones create freezing zones and can reflect eligible projectiles. Cyan can also slow her descent by holding Jump.",
+    combos: [
+        ["Frozen Harvest", "Ice Crescents → Shepherd's Hook → Scythe Combo", "Build Frostbite, pull your target close and exploit their vulnerability."],
+        ["Frozen Ambush", "Place Clone → Glacial Teleport → Clone Detonation", "Establish freezing zones and experiment with teleportation and detonations."]
+    ]
+},
+
+{
+    id: "grey",
+    name: "GREY",
+    color: "#aaaaaa",
+    image: "Grey_patron.png",
+    type: "Balance // Hammers",
+    overview: "A defensive combatant who combines powerful crescent strikes, crystal beams and two complementary forms of protection. Grey rewards timing, positioning and deliberate counterattacks.",
+    melee: "Alternate crescent strikes before delivering a powerful finishing slam.",
+    ranged: "Fire beams from four floating crystals, followed by a combined beam.",
+    abilities: [
+        ["Repulse", "Use Grey's repulsion ability to create space around yourself."],
+        ["Guard", "Alternate between Mirror Reflection and Stone Absorption. Mirror reflects incoming attacks while Stone absorbs damage."],
+        ["Ultimate", "Petrify nearby enemies and deliver a powerful finishing slam."],
+        ["Dash", "Perform a directional movement burst to reposition."],
+        ["Ground Slam", "While airborne, descend into a powerful ground impact."],
+        ["Empower", "Enhance your crystal beams for faster sustained ranged attacks."]
+    ],
+    mechanics: "Grey's Mirror and Stone guards have separate availability. Watch their individual HUD indicators and alternate defensive opportunities with offensive pressure.",
+    combos: [
+        ["Descending Impact", "Jump → Ground Slam → Melee Combo", "Approach from above and follow the impact with crescent strikes."],
+        ["Crystal Pressure", "Guard → Empower → Crystal Beams", "Defend against an incoming attack before responding with empowered ranged fire."]
+    ]
+},
+
+{
+    id: "magenta",
+    name: "MAGENTA",
+    color: "#ed00c7",
+    image: "Magenta_patron.png",
+    type: "Charm // Chains",
+    overview: "An acrobatic battlefield manipulator who uses chain whips, psychological effects and temporary platforms. Magenta can control enemy positioning while creating her own traversal routes.",
+    melee: "A graceful four-hit chain-whip combination with broad sweeping attacks.",
+    ranged: "Launch heart projectiles that build psychological effects on enemies.",
+    abilities: [
+        ["Mind-Control Kiss", "Launch a charm projectile that temporarily changes an enemy's allegiance. Hold the input to increase projectile size and charm duration."],
+        ["Denial", "Bring the Denial mask forward as a protective shield."],
+        ["Heartbreak Barrage", "Deploy all five masks to unleash a rapid barrage of heart projectiles toward your aim."],
+        ["Chain Grapple", "Swing from environmental anchors, pull smaller enemies toward yourself or zip toward heavier enemies and rebound after impact."],
+        ["Obsession / Masks", "Deploy offensive masks in rotation. Obsession increases damage received from Magenta, Delusion creates illusions and Empathy transfers a portion of received damage."],
+        ["Hysteria", "Empower your melee attacks. Successful whip strikes trigger additional delayed psychic strikes against the target."]
+    ],
+    mechanics: "Heart projectiles build psychological effects independently of deployed masks. Magenta can cling to walls, wall jump and conjure temporary platforms by holding a second jump input. Her own platforms can also serve as grapple anchors.",
+    combos: [
+        ["Psychological Breakdown", "Obsession → Hysteria → Whip Combo", "Make an enemy vulnerable before delivering physical and delayed psychic strikes."],
+        ["Swing & Snatch", "Chain Grapple → Melee Combo", "Use environmental anchors to approach enemies or pull smaller targets directly into whip range."]
+    ]
+},
+
+{
+    id: "black",
+    name: "BLACK",
+    color: "#bbbbbb",
+    image: "Black_patron.png",
+    type: "Void // Axes & Tendrils",
+    overview: "An unpredictable ambush predator capable of crawling across walls and ceilings. Black uses tendrils, life-restoring chomps and toxic void clouds to hunt opponents from unusual angles.",
+    melee: "Attack with tendrils and chomps. Successful chomps restore health.",
+    ranged: "Fire void projectiles from available tendrils.",
+    abilities: [
+        ["Tendril Axe", "Extend a tendril-mounted axe toward your target. Successful hits generate shield."],
+        ["Defensive Curl", "Curl your tendrils around your body to defend against incoming attacks."],
+        ["Hunting Mode", "Anchor yourself to a surface and enter a first-person hunting state. Capture enemies and consume collected targets."],
+        ["Elastic Pounce", "Launch yourself toward your aiming direction, including from walls and ceilings."],
+        ["Frantic Scramble", "Move rapidly as a wriggling mass of tendrils. Attacks are unavailable during the scramble."],
+        ["Tendril Vortex", "Pounce into enemies and wrap them in spinning tendrils. Use melee attacks to chomp captured targets."]
+    ],
+    mechanics: "Black can crawl across walls and ceilings. Attacking from these surfaces consumes stamina. Chomps build Miasma, allowing Black to release damaging void clouds. Captured opponents in PvP can struggle to escape.",
+    combos: [
+        ["Ceiling Ambush", "Ceiling Crawl → Elastic Pounce → Chomp", "Attack from an unexpected elevation and restore health through close-range combat."],
+        ["Predator's Feast", "Tendril Axe → Tendril Vortex → Chomp", "Build shield before capturing enemies and consuming them."]
+    ]
+}
+
+];
+
+const navigation = document.getElementById("roster-nav");
+const compendium = document.getElementById("compendium");
+
+patrons.forEach(patron => {
+
+    navigation.innerHTML += `
+        <a href="#${patron.id}"
+           style="--accent:${patron.color}">
+            ${patron.name}
+        </a>
+    `;
+
+    const abilityCards = patron.abilities.map((ability, i) => `
+        <div class="ability" style="--slot:${slots[i].color}">
+            <span class="binding">${ability[2] || slots[i].input}</span>
+            <h4>${ability[0].toUpperCase()}</h4>
+            <p>${ability[1]}</p>
+        </div>
+    `).join("");
+
+    const comboCards = patron.combos.map(combo => `
+        <div class="combo">
+            <h4>${combo[0]}</h4>
+            <p class="combo-sequence">${combo[1]}</p>
+            <p>${combo[2]}</p>
+        </div>
+    `).join("");
+
+    compendium.innerHTML += `
+        <section class="patron"
+                 id="${patron.id}"
+                 style="--accent:${patron.color}">
+
+            <div class="patron-heading">
+                <img class="portrait"
+                     src="${patron.image}"
+                     alt="${patron.name} Patron">
+
+                <div>
+                    <h2 class="patron-name">${patron.name}</h2>
+                    <p class="patron-type">${patron.type}</p>
+                    <p class="playstyle">${patron.overview}</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">BASIC ATTACKS</h3>
+
+            <div class="basics">
+                <div class="basic-card">
+                    <h4>MELEE</h4>
+                    <span class="binding">Xbox X / PS Square</span>
+                    <p>${patron.melee}</p>
+                </div>
+
+                <div class="basic-card">
+                    <h4>RANGED</h4>
+                    <span class="binding">Xbox RT / PS R2</span>
+                    <p>${patron.ranged}</p>
+                </div>
+            </div>
+
+            <h3 class="section-title">ABILITIES</h3>
+            <div class="abilities">${abilityCards}</div>
+
+            <h3 class="section-title">UNIQUE MECHANICS</h3>
+            <div class="mechanics">${patron.mechanics}</div>
+
+            <h3 class="section-title">TRY THIS</h3>
+            <div class="combos">${comboCards}</div>
+
+            <p class="no-print">
+                <a href="#roster-nav" class="button">BACK TO ROSTER</a>
+            </p>
+
+        </section>
+    `;
+});
+</script>
+
+</body>
+</html>
